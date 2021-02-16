@@ -1,0 +1,9 @@
+{
+  "network-topology:termination-point": [
+    {
+      "ovsdb:name": "tun1",
+      "tp-id": "tun1",
+      "qos": "90ba9c60-3aac-499d-9be7-555f19a6bb31"
+    }
+  ]
+}

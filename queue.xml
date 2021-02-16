@@ -1,0 +1,8 @@
+<queues xmlns="urn:opendaylight:params:xml:ns:yang:ovsdb">
+    <queue-id>QUEUE-1</queue-id>
+    <dscp>25</dscp>
+    <queues-other-config>
+        <queue-other-config-key>max-rate</queue-other-config-key>
+        <queue-other-config-value>3600000</queue-other-config-value>
+    </queues-other-config>
+</queues>

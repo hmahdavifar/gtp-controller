@@ -1,0 +1,20 @@
+{
+  "ovsdb:qos-entries": [
+    {
+      "qos-id": "qos-1",
+      "qos-type": "ovsdb:qos-type-linux-htb",
+      "qos-other-config": [
+        {
+          "other-config-key": "max-rate",
+          "other-config-value": "1000000"
+        }
+      ],
+      "queue-list": [
+        {
+          "queue-number": "0",
+          "queue-ref": "/network-topology:network-topology/network-topology:topology[network-topology:topology-id='ovsdb:1']/network-topology:node[network-topology:node-id='ovsdb://uuid/707303a1-338c-424c-9c00-8e080b35157b']/ovsdb:queues[ovsdb:queue-id='queue-1']"
+        }
+      ]
+    }
+  ]
+}

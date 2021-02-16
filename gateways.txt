@@ -1,0 +1,27 @@
+{
+"default pgw": {
+ 		"name" : "sw6", 
+		"tueip": "192.168.60.4" , 
+		"mac": "52:54:00:12:35:02", 
+		"in_services" : [{	
+				  "name" : "test", 
+			  	  "service" : {
+						"inip": "0.0.0.0/0", 
+				   	        "inport" : "1"
+					      }
+				}]
+		},
+
+"sgw": {
+	  "name" : "sw4", 
+	  "tueip": "192.168.60.3" , 
+	  "mac": "3e:fe:e4:55:44:e5", 
+	  "in_services" : [{
+			    "name" : "test", 
+			    "service" : {
+					 "inip": "0.0.0.0/0", 
+					 "inport" : "1"	
+					}
+			  }]
+	}
+}

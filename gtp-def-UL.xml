@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flow xmlns="urn:opendaylight:flow:inventory">
+	<id>1000</id>
+	<flow-name>GTP-UL</flow-name>
+	<priority>101</priority>
+	<table_id>0</table_id>
+	<hard-timeout>0</hard-timeout>
+	<match>
+		<ethernet-match>
+			<ethernet-type>
+				<type>2048</type>
+			</ethernet-type>
+		</ethernet-match>
+		<in-port>1</in-port>
+	</match>
+	<instructions>
+		<instruction>
+			<order>0</order>
+			<apply-actions>
+				<action>
+					<order>0</order>
+					<nx-reg-load xmlns="urn:opendaylight:openflowplugin:extension:nicira:action">
+						<value>3232250884</value>
+						<dst>
+							<nx-tun-ipv4-dst/>
+							<start>0</start>
+							<end>31</end>
+						</dst>
+					</nx-reg-load>
+				</action>
+				<action>
+					<order>1</order>
+					<nx-reg-load xmlns="urn:opendaylight:openflowplugin:extension:nicira:action">
+						<value>2</value>
+						<dst>
+							<nx-tun-id/>
+							<start>0</start>
+							<end>63</end>
+						</dst>
+					</nx-reg-load>
+				</action>
+				<action>
+					<order>2</order>
+					<output-action>
+						<max-length>0</max-length>
+						<output-node-connector>10</output-node-connector>
+					</output-action>
+				</action>
+			</apply-actions>
+		</instruction>
+	</instructions>
+	<idle-timeout>0</idle-timeout>
+</flow>

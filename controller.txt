@@ -1,0 +1,5 @@
+{
+"ip" : "192.168.56.12", "port" : "8181", "user_name" : "admin",  "username" : "admin", "password" : "admin"
+}
+
+
