@@ -38,21 +38,12 @@ Before starting there are 3 configuration file's that needs to be changes based 
       in clients.json add client list that you need to connect to EPC.
       in controller.txt insert your sgw and pgw names and other config.(names need to be written in this format 'sw'+integer  e.g. 'sw1')
       in controller.txt you need to fill out your odl controller information.
+      
+you also need to provide 3 VMs, on 2 of them you need to install ovs from this repo https://github.com/hmahdavifar/ovs that support for gtp tunnel.
+      
+the app.py file is core off this application when you run this it's read all the configuration you provided. then it's connect to odl controller to get the epc topology. if it findes sgw  and pgw in network topology 
 
-Setting up the GTP tunneling port on OVS ::
------------------------------------------
 
-``$ ovs-vsctl add-br br1``
-
-# flow based tunneling port
-
-``$ ovs-vsctl add-port br1 gtp0 -- set interface gtp0 type=gtp options:remote_ip=flow options:key=flow``
-
-or
-
-# port based tunneling port
-
-``$ ovs-vsctl add-port br1 gtp1 -- set interface gtp1 type=gtp options:remote_ip=<IP of the destination> options:key=flow``
 
 
 
