@@ -75,7 +75,7 @@ after running this steps you should have this network:
 8. on pgw VM run pgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
 
 
-connecting clients
+Connecting Clients
 -----------------------------------------
 after the steps you.ve done so far. you have make network infrastructure both control and data plane. now you need to program data plane to connect client's. for this we use app.py.
 
