@@ -52,8 +52,7 @@ we use virtualbox hypervisor to run this topology and it's vm, so description is
 4. prepare odl installed Vm and add host-only NIC in mentioned subnet range and set '192.168.56.12' ip add on it.
 5. run odl controller.
 6. set ovs-host ovsdb manager to odl controller you bring up in last step.
-7. on sgw VM run sgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
-8. on pgw VM run pgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
+
 
 after running this steps you should have this network:
 ::
@@ -69,14 +68,19 @@ after running this steps you should have this network:
                        |     |                                         |       |                            | 
                        |      ------------------------------------------       |                            |
                        --------------------------------------------------------------------------------------
-                 Host SGW with OVS.                                Host PGW with OVS.                 Host odl with opendaylight.
+                  SGW VM with OVS.                                 VM PGW with OVS.                  odl VM with opendaylight.
+
+:
+7. on sgw VM run sgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
+8. on pgw VM run pgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
 
 
+connecting clien's
+-----------------------------------------
+after the steps you.ve done so far. you have make network infrastructure bost control and data plane. now you need to program data plane to connect client's. for this we use app.py.
 
-
-
-      
-the app.py file is core off this application when you run this it's read all the configuration you provided. then it's connect to odl controller to get the epc topology. if it findes sgw  and pgw in network topology 
+when you run this it's read all the configuration you provided. then it's connect to odl controller to get the epc topology. if it finds sgw and pgw in network topology it first make spanning tree of network topology based on link's utilizations to connecting clinets from SGW to out network from shortest PGW which another mininet host with '10.0.0.6' ip resemble it. until it is running it monitor network topology and maintain a STP with link utilization consideration.
+after this initialization, it stop to get clinet name you like to make epc bearer for. when it get what it need. program the flows on sgw and pgw from odl and make default epc bearer flow for that client.
 
 
 
