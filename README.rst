@@ -27,11 +27,11 @@ Description
 
 This project resemble SDN-ECP control Plane. it configure ovs-based data Plane. it's need opendaylight controller for making changes on ovs switches and it's based on python 3, needs following packages::
 
-``httplib2
-  urllib
-  json
-  xml.dom.minidom
-  threading``
+      httplib2
+      urllib
+      json
+      xml.dom.minidom
+      threading
 
 Before starting there are 3 configuration file's that needs to be changes based on your desired topology.
 in clients.json add client list that you need to connect to EPC.
