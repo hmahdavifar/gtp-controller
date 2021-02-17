@@ -43,7 +43,8 @@ you also need to provide 3 VMs, on 2 of them you need to install ovs from this r
 
 Setting up SDN-EPC topology 
 -----------------------------------------
-we use virtualbox hypervisor to run this topology and it's vm, so description is based on this.:
+we use virtualbox hypervisor to run this topology and it's vm, so description is based on this.
+:
 1. prepare ovs and mininet installed vm's as mentioned above.
 2. add 2 Host-only Adapter to ovs VMs 1 in subnet range of 192.168.56.0/24 for connection to odl VM and other in subnet range on 192.168.60.0/24 for gtp tunnel.
 3. set '192.168.60.3' ip add on sgw VM NIC and '192.168.60.4' on pgw NIC.
