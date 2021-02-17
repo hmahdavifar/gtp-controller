@@ -34,9 +34,9 @@ This project resemble SDN-ECP control Plane. it configure ovs-based data Plane. 
       threading
 
 Before starting there are 3 configuration file's that needs to be changes based on your desired topology.
-in clients.json add client list that you need to connect to EPC.
-in controller.txt insert your sgw and pgw names and other config(names need to be written in this format 'sw'+intiger e.g. 'sw1')
-in controller.txt you need to fill out your odl controller information.
+      in clients.json add client list that you need to connect to EPC.
+      in controller.txt insert your sgw and pgw names and other config(names need to be written in this format 'sw'+intiger e.g. 'sw1')
+      in controller.txt you need to fill out your odl controller information.
 
 
 
