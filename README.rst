@@ -48,7 +48,7 @@ we use virtualbox hypervisor to run this topology and it's vm, so description is
 
 1. prepare ovs and mininet installed vm's as mentioned above.
 2. add 2 Host-only Adapter to ovs VMs 1 in subnet range of 192.168.56.0/24 for connection to odl VM and other in subnet range on 192.168.60.0/24 for gtp tunnel.
-3. set '192.168.60.3' ip add on sgw VM NIC and '192.168.60.4' on pgw NIC.
+3. set '192.168.60.3' ip add on sgw VM NIC and '192.168.60.4' on dpgw NIC.
 4. prepare odl installed Vm and add host-only NIC in mentioned subnet range and set '192.168.56.12' ip add on it.
 5. run odl controller.
 6. set ovs-host ovsdb manager to odl controller you bring up in last step.
@@ -68,7 +68,7 @@ after running this steps you should have this network:
                        |     |                                         |       |                            | 
                        |      ------------------------------------------       |                            |
                        --------------------------------------------------------------------------------------
-                  SGW VM with OVS.                                 VM PGW with OVS.                  odl VM with opendaylight.
+                  SGW VM with OVS.                                 VM DPGW with OVS.                  odl VM with opendaylight.
 
 :
   7. on sgw VM run sgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
@@ -80,19 +80,19 @@ after you have done step 7 and 8 you should have followed overlay topology in mi
 
     Diagram
     
-                                                              SGW VM with OVS       |                   |  DPGW VM with OVS 
+                                                                   SGW VM with OVS  |                   |  DPGW VM with OVS 
                       +-----+                                       ____            |                   |
      10.0.0.5/24      |  h5 |--------|                            /|SW2 |\          |                   |
                       +-----+        |                           / |____| \         |                   |
                       +-----+        |    ____            ____  /          \  ____  |                   | ____ 
      10.0.0.8/24      |  h8 |--------|---|SW5 |--------- |SW1 |/____________\|SW4 |_|___________________||SW6 |   +-----+ 
-                      +-----+        |   |____|          |____|\            /|SGW |_|______GTP TUNNEL___||PGW |---|  h6 |  10.0.0.6/24
+                      +-----+        |   |____|          |____|\            /|SGW |_|______GTP TUNNEL___||DPGW|---|  h6 |  10.0.0.6/24
                       +-----+        |                          \          / |____| |                   ||____|   +-----+
      10.0.0.7/24      |  h7 |--------|                           \        /         |                   |
                       +-----+                                     \ ____ /          |                   |
                                                                    |SW3 |           |                   |
                                                                    |____|           |                   |
-                                                                                    |                   |
+                                                                              
 
 
 Connecting Clients
