@@ -71,8 +71,28 @@ after running this steps you should have this network:
                   SGW VM with OVS.                                 VM PGW with OVS.                  odl VM with opendaylight.
 
 :
-7. on sgw VM run sgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
-8. on pgw VM run pgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
+  7. on sgw VM run sgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.
+  8. on pgw VM run pgw.py. it's job is to make network topology on mininet, bring up ovs bridges and configure gtp tunnel port.    
+
+after you have done step 7 and 8 you should have followed overlay topology in minine.
+
+ ::
+
+    Diagram
+    
+                                                              SGW VM with OVS       |                   |  DPGW VM with OVS 
+                      +-----+                                       ____            |                   |
+     10.0.0.5/24      |  h5 |--------|                            /|SW2 |\          |                   |
+                      +-----+        |                           / |____| \         |                   |
+                      +-----+        |    ____            ____  /          \  ____  |                   | ____ 
+     10.0.0.8/24      |  h8 |--------|---|SW5 |--------- |SW1 |/____________\|SW4 |_|___________________||SW6 |   +-----+ 
+                      +-----+        |   |____|          |____|\            /|SGW |_|______GTP TUNNEL___||PGW |---|  h6 |
+                      +-----+        |                          \          / |____| |                   ||____|   +-----+
+     10.0.0.7/24      |  h7 |--------|                           \        /         |                   |
+                      +-----+                                     \ ____ /          |                   |
+                                                                   |SW3 |           |                   |
+                                                                   |____|           |                   |
+                                                                                    |                   |
 
 
 Connecting Clients
