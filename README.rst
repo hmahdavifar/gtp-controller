@@ -25,7 +25,7 @@
 Description
 =================
 
-This project resemble SDN-ECP control Plane. it configure ovs-based data Plane. it's need opendaylight controller for making changes on ovs switches and it's based on python 3, needs following packages::
+This project resemble SDN-EPC control Plane. it configure ovs-based data Plane. it's need opendaylight controller for making changes on ovs switches and it's based on python 3, needs following packages::
 
       httplib2
       urllib
